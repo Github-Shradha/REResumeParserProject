@@ -114,10 +114,9 @@
       <AssemblyReference>Google.Apis.Drive.v3</AssemblyReference>
       <AssemblyReference>Google.Apis.Core</AssemblyReference>
       <AssemblyReference>Google.Apis</AssemblyReference>
-      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]-REResumeParserProject&#xA;[Process description]- 1) Takes input:  Google drive link, JD code, Skill set from UIApp&#xA;                                     2) Downloads file from drive to local folder and processes it to candidate extract data&#xA;                                     3) writes candidate data to output excel &#xA;                                     4) Processes data and matches reqd skills with candidate skill to select candidate&#xA;                                     5) Sends selected candidate list to HR along with folder with selected candidate rresumes&#xA;                                     6) Ends the process when all resumes are processed&#xA;&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687.2,897.6" sap2010:WorkflowViewState.IdRef="StateMachine_1">
+  <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]-REResumeParserProject- 01June2022&#xA;[Process description]- 1) Takes input:  Google drive link, JD code, Skill set from UIApp&#xA;                                     2) Downloads file from drive to local folder and processes it to candidate extract data&#xA;                                     3) writes candidate data to output excel &#xA;                                     4) Processes data and matches reqd skills with candidate skill to select candidate&#xA;                                     5) Sends selected candidate list to HR along with folder with selected candidate rresumes&#xA;                                     6) Ends the process when all resumes are processed&#xA;&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="687.2,897.6" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -270,36 +269,16 @@
                       </Assign>
                       <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Process workflow" sap:VirtualizedContainerService.HintSize="436.8,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_24" UnSafe="False" WorkflowFileName="Framework\Process.xaml">
                         <ui:InvokeWorkflowFile.Arguments>
-                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataRow" ExpressionText="TransactionItem" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
-                            <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="Config" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_ClientID">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="ClientID" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="ss:SecureString" x:Key="in_ClientSecret">
-                            <mva:VisualBasicValue x:TypeArguments="ss:SecureString" ExpressionText="ClientSecret" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="sd:DataTable" x:Key="io_TransactionData">
-                            <mva:VisualBasicValue x:TypeArguments="sd:DataTable" ExpressionText="dt_TransactionData" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">
-                            <mva:VisualBasicValue x:TypeArguments="x:Int32" ExpressionText="TransactionNumber" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="CandidateSkill">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="CandidateSkill" />
-                          </InArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_SkillsReqd">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_SkillsReqd" />
-                          </InArgument>
-                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_CandidateDT">
-                            <mva:VisualBasicReference x:TypeArguments="sd:DataTable" ExpressionText="io_CandidateDT" />
-                          </InOutArgument>
-                          <InArgument x:TypeArguments="x:String" x:Key="in_GDriveFolder_JobCode">
-                            <mva:VisualBasicValue x:TypeArguments="x:String" ExpressionText="in_GDriveFolder_JobCode" />
-                          </InArgument>
+                          <InArgument x:TypeArguments="sd:DataRow" x:Key="in_TransactionItem">[TransactionItem]</InArgument>
+                          <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">[Config]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_ClientID">[ClientID]</InArgument>
+                          <InArgument x:TypeArguments="ss:SecureString" x:Key="in_ClientSecret">[ClientSecret]</InArgument>
+                          <InArgument x:TypeArguments="sd:DataTable" x:Key="io_TransactionData">[dt_TransactionData]</InArgument>
+                          <InArgument x:TypeArguments="x:Int32" x:Key="in_TransactionNumber">[TransactionNumber]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="CandidateSkill">[CandidateSkill]</InArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_SkillsReqd">[in_SkillsReqd]</InArgument>
+                          <InOutArgument x:TypeArguments="sd:DataTable" x:Key="io_CandidateDT">[io_CandidateDT]</InOutArgument>
+                          <InArgument x:TypeArguments="x:String" x:Key="in_GDriveFolder_JobCode">[in_GDriveFolder_JobCode]</InArgument>
                         </ui:InvokeWorkflowFile.Arguments>
                       </ui:InvokeWorkflowFile>
                       <TryCatch DisplayName="Try Catch Set Transaction Status (Success)" sap:VirtualizedContainerService.HintSize="436.8,344.8" sap2010:WorkflowViewState.IdRef="TryCatch_10">
@@ -719,7 +698,7 @@
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
-                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="144,122.4" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
+                            <State x:Name="__ReferenceID1" sap2010:Annotation.AnnotationText="End process and close all applications used." DisplayName="End Process" sap:VirtualizedContainerService.HintSize="556.8,1596.8" sap2010:WorkflowViewState.IdRef="State_1" IsFinal="True">
                               <State.Entry>
                                 <TryCatch DisplayName="Try to close all aplications" sap:VirtualizedContainerService.HintSize="512,1452" sap2010:WorkflowViewState.IdRef="TryCatch_4">
                                   <sap:WorkflowViewStateService.ViewState>
